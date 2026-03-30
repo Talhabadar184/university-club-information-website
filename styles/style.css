@@ -1,90 +1,120 @@
-/* styles/style.css */
+/* Import a modern Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Define a modern color palette using CSS Variables */
+:root {
+    --primary-color: #4f46e5; /* Vibrant Indigo */
+    --primary-light: #818cf8;
+    --bg-color: #f3f4f6; /* Soft light gray background */
+    --card-bg: #ffffff;
+    --text-main: #1f2937; /* Dark slate instead of harsh black */
+    --text-muted: #4b5563;
+}
 
 /* Basic Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Body layout using Flexbox to keep the footer at the bottom */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
     line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Header and Navigation */
+/* Header - Modern Gradient & Spacing */
 header {
-    background-color: #004d99;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
     color: white;
-    padding: 1.5rem 0;
+    padding: 4rem 2rem;
     text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Navigation - Sticky & Pill-shaped hover effects */
+nav {
+    background: var(--card-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Keeps nav at the top when scrolling */
+    top: 0;
+    z-index: 100;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    background-color: #003366;
-    padding: 10px 0;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 1rem;
+    gap: 0.5rem;
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    color: var(--text-main);
+    font-weight: 400;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px; /* Modern pill shape */
+    transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #0059b3;
-}
-
-/* Main Content Area */
-main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-h2 {
-    color: #004d99;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-}
-
-/* Lists and Cards */
-.card-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.card {
-    background: #f4f4f9;
-    padding: 20px;
-    border-left: 5px solid #004d99;
-    border-radius: 4px;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
+    background-color: var(--primary-color);
     color: white;
-    margin-top: 40px;
+    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Main Content - Floating Card Look */
+main {
+    flex: 1; /* Pushes footer down */
+    width: 90%;
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background: var(--card-bg);
+    border-radius: 16px; /* Smooth, rounded corners */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025); /* Soft, layered shadow */
+}
+
+main h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+main p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Footer - Clean and minimal */
+footer {
+    background-color: #111827; /* Very dark blue/gray */
+    color: #9ca3af;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+    font-size: 0.9rem;
 }
